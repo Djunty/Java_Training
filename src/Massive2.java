@@ -21,6 +21,7 @@ public class Massive2 {
             //    System.out.println("You have only negative nambers!!!");
             //    break;
             //}
+
             if (numbers[i] > max) {
                 max = numbers[i];
                 index = i;
