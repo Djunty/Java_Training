@@ -17,15 +17,15 @@ public class Massive2 {
 
 
         for (int i = 0; i < numbers.length; i++){
-            if (max > numbers[i]){
-                System.out.println("You have only negative nambers!!!");
-                break;
-            }
+            //if (max > numbers[i]){
+            //    System.out.println("You have only negative nambers!!!");
+            //    break;
+            //}
             if (numbers[i] > max) {
                 max = numbers[i];
                 index = i;
             }
         }
-        System.out.println("Max number - " + "(" + max + ")" + " with index - " + index);
+        System.out.println("Max number is " + "(" + max + ")" + " with index - " + "(" + index + ")");
     }
 }
