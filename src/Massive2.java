@@ -28,5 +28,6 @@ public class Massive2 {
             }
         }
         System.out.println("Max number is " + "(" + min + ")" + " with index - " + "(" + index + ")");
+
     }
 }
