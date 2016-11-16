@@ -1,7 +1,5 @@
 package com.company;
 
-import java.util.Arrays;
-
 public class FirstClass {
 
     public static void main(String args[]) {
@@ -17,7 +15,7 @@ public class FirstClass {
 
 
 
-        boolean check = false;
+        boolean check;
         for(int i = 0; i < 12; i++){
             check = months[i].equals(a);
             if (check){
