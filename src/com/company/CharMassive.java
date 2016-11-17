@@ -2,6 +2,8 @@ package com.company;
 
 import java.util.Random;
 
+import static java.lang.Math.max;
+
 public class CharMassive {
     private static final char START_CHAR = 'A';
     private static final char VOWELS[] = {'A', 'E', 'I', 'O', 'U', 'Y'};
@@ -19,7 +21,15 @@ public class CharMassive {
 
         char test3[] = {'A', 'A', 'A', 'A', 'A', 'A', 'A'};
         System.out.println("MAX Current cluster (test 3): " + (findMaxClusterSize(test3) + 1));
+
+        char test4[] = {'O', 'D', 'F', 'Q', 'S', 'D', 'S', 'V', 'V'};
+        System.out.println("MAX Jump cluster - result should be - 8 (test 4) = " + (findMaxClusterSize(test4)));
+
+        char test5[] = {'S', 'D', 'F', 'Q', 'S', 'D', 'S', 'V', 'E'};
+        System.out.println("MAX Jump cluster - result should be - 8 (test 5) = " + (findMaxClusterSize(test5)));
     }
+
+
 
     private static int findMaxClusterSize(char [] letters) {
         int currentMaxClusterSize = 0;
@@ -27,17 +37,20 @@ public class CharMassive {
 
         for (char letter: letters){
             if (isVovel(letter)) {
-                if (currentClusterSize > currentMaxClusterSize) {
+                currentMaxClusterSize = max(currentMaxClusterSize, currentClusterSize);
+                /*if (currentClusterSize > currentMaxClusterSize) {
                     currentMaxClusterSize = currentClusterSize;
-                }
+                }*/
                 currentClusterSize = 0;
             } else {
                 currentClusterSize++;
             }
         }
-        if (currentClusterSize > currentMaxClusterSize) {
+        currentMaxClusterSize = max(currentMaxClusterSize, currentClusterSize);
+        /*if (currentClusterSize > currentMaxClusterSize) {
             currentMaxClusterSize = currentClusterSize;
-        }
+        }*/
+        currentMaxClusterSize = currentClusterSize > currentMaxClusterSize ? currentClusterSize : currentMaxClusterSize;
 
         return currentMaxClusterSize;
     }

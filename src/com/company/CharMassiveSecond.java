@@ -29,25 +29,26 @@ public class CharMassiveSecond {
         System.out.println("MAX Jump cluster - result should be - 9 (test 5) = " + (vowelIndex(test5)));
         }
 
+    /**
+     * O T O
+     */
+
     private static int vowelIndex (char[] letters){
-        int currentIndex;
+        int startVowelIndex = -1;
         int currentMaxIndex = 0;
         int jump;
         int maxJump = 0;
 
         for (int i = 0; i < letters.length; i++){
-            char letter = letters[i];
-            if (isVowel(letter)){
-               currentIndex = i + 1;
-               //System.out.println("Fuck! - " + currentIndex);
-                if (currentIndex > currentMaxIndex){
-                    jump = currentIndex - currentMaxIndex;
-                    currentMaxIndex = currentIndex;
+            if (isVowel(letters[i])){
+                if (i > startVowelIndex){
+                    jump = i - startVowelIndex;
+                    currentMaxIndex = i;
                         if (jump > maxJump){
                             maxJump = jump;
                         }
                 }
-            }
+            }//else maxJump = letters.length +1;
         }
         return maxJump;
     }
